@@ -27,10 +27,10 @@ public class Main {
                 System.out.println("Enter Player Type: ");
                 String type=input.nextLine();
                 System.out.println("Enter Player Marks: ");
-                int marks=input.nextInt();
+                int points=input.nextInt();
                 input.nextLine();
 
-                system.addPlayer(name,team,type,points);
+                system.addPlayer(name, team, type, points);
                 break;
             case 2:
                 system.showBattingRanking();
