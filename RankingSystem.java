@@ -26,4 +26,36 @@ public class RankingSystem {
                 System.out.println(p);
             }
         }
+        
+        public void showBattingRanking(){
+            ArrayList<Player> batters=new ArrayList<>();
+            for(Player p:players.values()){
+                if (p.getType().equals("BATTER")) {
+                    batters.add(p);
+                }
+
+            }
+            batters.sort((a,b)->b.getPoints()-a.getPoints());
+            System.out.println("****\n ICC BATTING RANKINGS****");
+            for(int i=0;i<batters.size();i++){
+                System.out.println((i+1) + "."+batters.get(i));
+            }
+        }
+
+        public void showBawlingRankings(){
+            ArrayList<Player> bawlers=new ArrayList<>();
+
+            for(Player p:players.values()){
+                if(p.getType().equals("BAWLER")){
+                    bawlers.add(p);
+                }
+            }
+            bawlers.sort((a,b)-> b.getPoints()-a.getPoints());
+            System.out.println("****\n ICC BAWLING RANKINGS****");
+            for(int i=0;i<bawlers.size();i++){
+                System.out.println((i+1)+ ". "+bawlers.get(i));
+            }
+        }
+
+
     }

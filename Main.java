@@ -3,13 +3,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
     Scanner input=new Scanner(System.in);
+    RankingSystem system=new RankingSystem();
 
     boolean ruuning=true;
     while(ruuning){
         System.out.println("\n****International Cricket Council Rankings****");
         System.out.println("1. Add Player");
         System.out.println("2. Show Batting Rankings");
-        System.out.println("3. Show Balling Rankings");
+        System.out.println("3. Show Bawling Rankings");
         System.out.println("4. Update Player Points");
         System.out.println("5. Exit");
         System.out.println("   ENTER YOUR CHOICE: ");
@@ -29,9 +30,15 @@ public class Main {
                 int marks=input.nextInt();
                 input.nextLine();
 
-                System.addPlayer(name,team,type,points);
+                system.addPlayer(name,team,type,points);
                 break;
-        
+            case 2:
+                system.showBattingRanking();
+                break;
+
+            case 3:
+                system.showBawlingRankings();
+                break;
             default:
                 System.out.println("Invalid Choice");
                 break;
