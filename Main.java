@@ -29,6 +29,7 @@ public class Main {
                 int marks=input.nextInt();
                 input.nextLine();
 
+                System.addPlayer(name,team,type,points);
                 break;
         
             default:
