@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.jar.Attributes.Name;
 public class RankingSystem {
     private Map<String ,Player> players;
     private Stack<UpdatePoints> history;
@@ -56,6 +57,38 @@ public class RankingSystem {
                 System.out.println((i+1)+ ". "+bawlers.get(i));
             }
         }
+
+        public void updatePlayerPoints(String name,int newPoints){
+            Player player=players.get(name.toLowerCase());
+            if (name==null) {
+                System.out.println("player not found");
+                return;
+            }
+            int oldPoints=player.getPoints();
+            player.setPoints(newPoints);
+
+            history.push(new UpdatePoints(player.getName(), oldPoints, oldPoints));
+            System.out.println("player points updated seccussfully");
+
+        }
+        
+        public void undoUpdates(){
+            if (history.isEmpty()) {
+                System.out.println("No updates to undo");
+                return;
+            }
+            UpdatePoints last=history.pop();
+            Player player=players.get(last.getPlayerName().toLowerCase());
+
+            if(player!=null){
+                player.setPoints(last.getOldPoints());
+                System.out.println("Restored.undo successfully"+player.getName()+" poin restored"+last.getOldPoints());
+            }
+
+        }
+
+
+
 
 
 
