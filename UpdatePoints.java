@@ -18,4 +18,7 @@ public class UpdatePoints {
     public int getNewPoints(){
         return newPoints;
     }
+    public void setNewPoints(int newPoints){
+        this.newPoints=newPoints;
+    }
 }

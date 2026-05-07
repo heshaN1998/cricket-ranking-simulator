@@ -39,6 +39,22 @@ public class Main {
             case 3:
                 system.showBawlingRankings();
                 break;
+
+            case 4:
+                System.out.println("Enter player name: ");
+                String updateName=input.nextLine();
+                System.out.println("Enter player points");
+                int newPoints=input.nextInt();
+                input.nextLine();
+
+                system.updatePlayerPoints(updateName, newPoints);
+                break;
+
+            case 5:
+                system.undoUpdates();
+                break;
+
+
             default:
                 System.out.println("Invalid Choice");
                 break;
