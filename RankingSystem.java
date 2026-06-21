@@ -60,14 +60,14 @@ public class RankingSystem {
 
         public void updatePlayerPoints(String name,int newPoints){
             Player player=players.get(name.toLowerCase());
-            if (name==null) {
+            if (player==null) {
                 System.out.println("player not found");
                 return;
             }
             int oldPoints=player.getPoints();
             player.setPoints(newPoints);
 
-            history.push(new UpdatePoints(player.getName(), oldPoints, oldPoints));
+            history.push(new UpdatePoints(player.getName(), oldPoints, newPoints));
             System.out.println("player points updated seccussfully");
 
         }
