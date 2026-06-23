@@ -12,7 +12,9 @@ public class Main {
         System.out.println("2. Show Batting Rankings");
         System.out.println("3. Show Bawling Rankings");
         System.out.println("4. Update Player Points");
-        System.out.println("5. Exit");
+        System.out.println("5. undo Last Update");
+        System.out.println("6. Exit");
+
         System.out.println("   ENTER YOUR CHOICE: ");
 
         int choice=input.nextInt();
@@ -54,6 +56,10 @@ public class Main {
                 system.undoUpdates();
                 break;
 
+            case 6:
+                System.out.println("Exiting...");
+                ruuning=false;
+                break;
 
             default:
                 System.out.println("Invalid Choice");
