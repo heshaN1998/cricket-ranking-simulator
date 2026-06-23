@@ -3,21 +3,25 @@ import java.util.jar.Attributes.Name;
 public class RankingSystem {
     private Map<String ,Player> players;
     private Stack<UpdatePoints> history;
-    private Queue<String> updateQueue;
+    //private Queue<String> updateQueue;
 
     public RankingSystem(){
         players=new HashMap<>();
         history=new Stack<>();
-        updateQueue=new LinkedList<>();
+        //updateQueue=new LinkedList<>();
+        }
+        private String normalizeName(String name) {
+            return name.trim().toLowerCase();
         }
 
         public void addPlayer(String name,String team,String type,int points){
-            if(players.containsKey(name.trim().toLowerCase())){
+            String key=normalizeName(name);
+            if(players.containsKey(key)){
                 System.out.println("Player already exists");
                 return;
             }
             Player player=new Player(name,team,type.toUpperCase(),points);
-            players.put(name.toUpperCase(), player);
+            players.put(key, player);
             System.out.println("added Player successfully");
             
         }
@@ -59,7 +63,8 @@ public class RankingSystem {
         }
 
         public void updatePlayerPoints(String name,int newPoints){
-            Player player=players.get(name.toLowerCase());
+            String key=normalizeName(name);
+            Player player=players.get(key);
             if (player==null) {
                 System.out.println("player not found");
                 return;
@@ -78,7 +83,8 @@ public class RankingSystem {
                 return;
             }
             UpdatePoints last=history.pop();
-            Player player=players.get(last.getPlayerName().toLowerCase());
+            String key=normalizeName(last.getPlayerName());
+            Player player=players.get(key);
 
             if(player!=null){
                 player.setPoints(last.getOldPoints());
